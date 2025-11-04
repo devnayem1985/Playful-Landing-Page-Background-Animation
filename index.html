@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameConnect Agency - Tech & Gaming Influencer Marketing</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B  50%, #334155 100%);
+        }
+        
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        .circuit-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent 0%, #3B82F6 50%, transparent 100%);
+            height: 2px;
+            animation: circuitFlow 4s linear infinite;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #10B981;
+            border-radius: 50%;
+            animation: particleFloat 8s linear infinite;
+        }
+        
+        .hexagon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3B82F6, #10B981);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: hexRotate 12s linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        @keyframes circuitFlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+        }
+        
+        @keyframes hexRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .gaming-icon {
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            border-radius: 12px;
+            padding: 12px;
+            animation: iconBounce 4s ease-in-out infinite;
+        }
+        
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .data-stream {
+            position: absolute;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #10B981, transparent);
+            animation: dataFlow 3s linear infinite;
+        }
+        
+        @keyframes dataFlow {
+            0% { transform: translateX(-200px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(400px); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="font-['Pacifico'] text-2xl text-primary">GameConnect</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Services</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Creators</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Case Studies</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">About</a>
+                    <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-600 transition-colors whitespace-nowrap">
+                        Get Started
+                    </button>
+                </div>
+                <div class="md:hidden w-6 h-6 flex items-center justify-center">
+                    <i class="ri-menu-line text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-bg relative overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0">
+            <div class="floating-element top-20 right-20">
+                <div class="hexagon pulse-glow"></div>
+            </div>
+            <div class="floating-element top-40 right-40">
+                <div class="gaming-icon">
+                    <i class="ri-gamepad-line text-white text-xl"></i>
+                </div>
+            </div>
+            <div class="floating-element top-60 right-60">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full pulse-glow"></div>
+            </div>
+            <div class="floating-element top-80 right-32">
+                <div class="gaming-icon">
+                    <i class="ri-trophy-line text-white text-xl"></i>
+                </div>
+            </div>
+            <div class="floating-element top-32 right-80">
+                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg pulse-glow"></div>
+            </div>
+            
+            <div class="circuit-line top-1/4 right-0"></div>
+            <div class="circuit-line top-1/2 right-0" style="animation-delay: -2s;"></div>
+            <div class="circuit-line top-3/4 right-0" style="animation-delay: -1s;"></div>
+            
+            <div class="data-stream top-1/3 right-20" style="animation-delay: -1s;"></div>
+            <div class="data-stream top-2/3 right-40" style="animation-delay: -2.5s;"></div>
+            
+            <div class="particle" style="right: 10%; animation-delay: -1s;"></div>
+            <div class="particle" style="right: 20%; animation-delay: -3s;"></div>
+            <div class="particle" style="right: 30%; animation-delay: -5s;"></div>
+            <div class="particle" style="right: 15%; animation-delay: -7s;"></div>
+            <div class="particle" style="right: 25%; animation-delay: -2s;"></div>
+            
+            <div class="absolute top-1/4 right-1/4 w-32 h-32 border-2 border-blue-500 rounded-full opacity-30 pulse-glow"></div>
+            <div class="absolute top-1/2 right-1/3 w-24 h-24 border-2 border-green-500 rounded-full opacity-20 pulse-glow" style="animation-delay: -1s;"></div>
+        </div>
+        
+        <div class="w-full relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-12 gap-8 items-center min-h-screen py-20">
+                    <div class="col-span-12 lg:col-span-5">
+                        <div class="space-y-8">
+                            <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight">
+                                Connect Brands with 
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
+                                    Gaming Legends
+                                </span>
+                            </h1>
+                            <p class="text-xl text-gray-300 leading-relaxed max-w-lg">
+                                We bridge the gap between innovative tech brands and the most influential gaming creators. 
+                                Drive authentic engagement through strategic partnerships that gamers actually trust.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button class="bg-primary text-white px-8 py-4 !rounded-button hover:bg-blue-600 transition-colors text-lg font-semibold whitespace-nowrap">
+                                    Start Your Campaign
+                                </button>
+                                <button class="border-2 border-white text-white px-8 py-4 !rounded-button hover:bg-white hover:text-gray-900 transition-colors text-lg font-semibold whitespace-nowrap">
+                                    View Creator Network
+                                </button>
+                            </div>
+                            <div class="flex items-center space-x-8 pt-4">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-white">500+</div>
+                                    <div class="text-sm text-gray-400">Gaming Creators</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-white">50M+</div>
+                                    <div class="text-sm text-gray-400">Total Reach</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-white">98%</div>
+                                    <div class="text-sm text-gray-400">Client Satisfaction</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Trusted by Leading Tech Brands</h2>
+                <p class="text-xl text-gray-600">Join the companies already winning with gaming influencer marketing</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <div class="flex items-center justify-center space-x-2 text-gray-600">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-microsoft-line text-2xl"></i>
+                    </div>
+                    <span class="font-semibold">Microsoft</span>
+                </div>
+                <div class="flex items-center justify-center space-x-2 text-gray-600">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-apple-line text-2xl"></i>
+                    </div>
+                    <span class="font-semibold">Apple</span>
+                </div>
+                <div class="flex items-center justify-center space-x-2 text-gray-600">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-google-line text-2xl"></i>
+                    </div>
+                    <span class="font-semibold">Google</span>
+                </div>
+                <div class="flex items-center justify-center space-x-2 text-gray-600">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-nvidia-line text-2xl"></i>
+                    </div>
+                    <span class="font-semibold">NVIDIA</span>
+                </div>
+                <div class="flex items-center justify-center space-x-2 text-gray-600">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-meta-line text-2xl"></i>
+                    </div>
+                    <span class="font-semibold">Meta</span>
+                </div>
+                <div class="flex items-center justify-center space-x-2 text-gray-600">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-amazon-line text-2xl"></i>
+                    </div>
+                    <span class="font-semibold">Amazon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">How We Create Gaming Magic</h2>
+                <p class="text-xl text-gray-600">Our proven process delivers authentic connections that drive real results</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ri-search-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Creator Discovery</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We analyze audience demographics, engagement rates, and content quality to find creators who perfectly align with your brand values and target market.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ri-handshake-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Strategic Partnerships</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Our team negotiates authentic collaboration opportunities that feel natural to audiences while delivering measurable ROI for your marketing investment.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ri-line-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Performance Optimization</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Real-time analytics and A/B testing help us continuously optimize campaigns for maximum engagement, conversion rates, and brand awareness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Meet Our Gaming Creators</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        From esports champions to content creators with millions of followers, our network includes the most trusted voices in gaming.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <i class="ri-trophy-fill text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Esports Champions</h4>
+                                <p class="text-gray-600">Professional players with tournament credibility</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center">
+                                <i class="ri-live-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Streaming Stars</h4>
+                                <p class="text-gray-600">Top Twitch and YouTube gaming streamers</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
+                                <i class="ri-group-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Community Leaders</h4>
+                                <p class="text-gray-600">Influential voices in gaming communities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 text-center">
+                        <img src="https://readdy.ai/api/search-image?query=professional%20esports%20player%20gaming%20setup%20with%20RGB%20lighting%2C%20modern%20gaming%20chair%2C%20multiple%20monitors%2C%20clean%20studio%20environment%2C%20high-tech%20atmosphere&width=200&height=200&seq=creator1&orientation=squarish" alt="Gaming Creator" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover object-top">
+                        <h4 class="font-bold text-gray-900">Alex "ProGamer" Chen</h4>
+                        <p class="text-sm text-gray-600 mb-2">Esports Champion</p>
+                        <p class="text-xs text-gray-500">2.3M Followers</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-6 text-center">
+                        <img src="https://readdy.ai/api/search-image?query=female%20gaming%20streamer%20with%20colorful%20LED%20setup%2C%20professional%20streaming%20equipment%2C%20energetic%20personality%2C%20modern%20gaming%20room%20with%20neon%20accents&width=200&height=200&seq=creator2&orientation=squarish" alt="Gaming Creator" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover object-top">
+                        <h4 class="font-bold text-gray-900">Sarah "StreamQueen" Johnson</h4>
+                        <p class="text-sm text-gray-600 mb-2">Content Creator</p>
+                        <p class="text-xs text-gray-500">1.8M Followers</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 text-center">
+                        <img src="https://readdy.ai/api/search-image?query=young%20male%20gaming%20influencer%20with%20headset%2C%20professional%20gaming%20setup%2C%20RGB%20keyboard%20and%20mouse%2C%20modern%20tech%20environment%20with%20gaming%20peripherals&width=200&height=200&seq=creator3&orientation=squarish" alt="Gaming Creator" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover object-top">
+                        <h4 class="font-bold text-gray-900">Marcus "TechReviewer" Williams</h4>
+                        <p class="text-sm text-gray-600 mb-2">Tech Reviewer</p>
+                        <p class="text-xs text-gray-500">3.1M Followers</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 text-center">
+                        <img src="https://readdy.ai/api/search-image?query=gaming%20content%20creator%20with%20VR%20headset%2C%20futuristic%20gaming%20setup%2C%20holographic%20displays%2C%20cutting-edge%20technology%20environment%2C%20immersive%20gaming%20atmosphere&width=200&height=200&seq=creator4&orientation=squarish" alt="Gaming Creator" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover object-top">
+                        <h4 class="font-bold text-gray-900">Emma "VRExplorer" Davis</h4>
+                        <p class="text-sm text-gray-600 mb-2">VR Specialist</p>
+                        <p class="text-xs text-gray-500">1.5M Followers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Level Up Your Marketing?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join the brands already winning with authentic gaming influencer partnerships. Let's create something amazing together.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-8 py-4 !rounded-button hover:bg-gray-100 transition-colors text-lg font-semibold whitespace-nowrap">
+                    Start Your Campaign
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 !rounded-button hover:bg-white hover:text-blue-600 transition-colors text-lg font-semibold whitespace-nowrap">
+                    Schedule a Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="font-['Pacifico'] text-2xl text-primary mb-4 block">GameConnect</span>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Connecting innovative tech brands with the most influential gaming creators for authentic, high-impact marketing campaigns.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-twitter-line"></i>
+                        </div>
+                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-linkedin-line"></i>
+                        </div>
+                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-instagram-line"></i>
+                        </div>
+                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-youtube-line"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Influencer Marketing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Campaign Management</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Creator Network</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Analytics & Reporting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2024 GameConnect Agency. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="hero-animations">
+        document.addEventListener('DOMContentLoaded', function() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                particle.style.right = Math.random() * 50 + 10 + '%';
+                particle.style.animationDelay = -Math.random() * 8 + 's';
+            });
+
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach((element, index) => {
+                element.style.animationDelay = -Math.random() * 6 + 's';
+            });
+        });
+    </script>
+
+    <script id="smooth-scrolling">
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<script>
+    !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+    posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_performance: {
+            web_vitals: false,
+        },
+        rageclick: false,
+    })
+    window.shareKey = 'N1Mo1gAVeoIKOFv8zOAuaw';
+    window.host = 'readdy.ai';
+</script>
+</body>
+</html>
